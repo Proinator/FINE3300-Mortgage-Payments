@@ -7,8 +7,10 @@ Question 1: Write a function named mortgage payments that takes three parameters
 the monthly, semi-monthly, bi-weekly, weekly, rapid bi-weekly, and rapid weekly payments.
 """
 def mortgage_payments(principal, rate, amortization):
-    # Convert the quoted rate (rq) to a decimal and calculate periodic rates
+    # Convert the quoted rate to a decimal and store in variable rq
     rq = rate / 100
+    
+    # Calculate the periodic rates
     r_monthly = (1 + rq / 2)**(2 / 12) - 1
     r_semi_monthly = (1 + rq / 2)**(2 / 24) - 1
     r_bi_weekly = (1 + rq / 2)**(2 / 26) - 1
@@ -39,8 +41,9 @@ def mortgage_payments(principal, rate, amortization):
     )
 
 """ 
-Question 2: Prompt the user to enter the principal amount, the quoted interest rate 
-(as a percent, for example, 4.85), and the amortization period in years. 
+Question 2: Prompt the user to enter the principal amount, the quoted interest rate (as a percent, 
+for example, 4.85), and the amortization period in years. We will assume that users will provide 
+legitimate input values so no validation checks will be performed on the input values.
 """
 principal = float(input("Enter the principal amount: "))
 rate = float(input("Enter the quoted annual interest rate (in %): "))
@@ -53,7 +56,8 @@ payments = mortgage_payments(principal, rate, amortization)
 Question 3: Format output (rounded to the nearest penny). 
 """
 # Display the results
-print(f"\nMonthly Payment: ${payments[0]:,.2f}")
+print(" ")
+print(f"Monthly Payment: ${payments[0]:,.2f}")
 print(f"Semi-monthly Payment: ${payments[1]:,.2f}")
 print(f"Bi-weekly Payment: ${payments[2]:,.2f}")
 print(f"Weekly Payment: ${payments[3]:,.2f}")
