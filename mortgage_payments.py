@@ -1,16 +1,13 @@
+# FINE 3300 Assignment 1 - Mortgage Payments
+# Jai Panesar
+
+"""
+Question 1: Write a function named mortgage payments that takes three parameters 
+(named principal, rate, and amortization), and returns a tuple of six values representing 
+the monthly, semi-monthly, bi-weekly, weekly, rapid bi-weekly, and rapid weekly payments.
+"""
 def mortgage_payments(principal, rate, amortization):
-    """
-    Calculate the periodic mortgage payments based on the present value of annuity factor.
-
-    Args:
-        principal (float): Principal loan amount.
-        rate (float): Quoted annual interest rate (as a percentage).
-        amortization (int): Amortization period in years.
-
-    Returns:
-        tuple: Monthly, semi-monthly, bi-weekly, weekly, rapid bi-weekly, and rapid weekly payments.
-    """
-    # Convert the quoted rate to a decimal and calculate periodic rates
+    # Convert the quoted rate (rq) to a decimal and calculate periodic rates
     rq = rate / 100
     r_monthly = (1 + rq / 2)**(2 / 12) - 1
     r_semi_monthly = (1 + rq / 2)**(2 / 24) - 1
@@ -31,6 +28,7 @@ def mortgage_payments(principal, rate, amortization):
     rapid_bi_weekly_payment = monthly_payment / 2
     rapid_weekly_payment = monthly_payment / 4
 
+    # Return a tuple of six values (one for each payment)
     return (
         round(monthly_payment, 2),
         round(semi_monthly_payment, 2),
@@ -40,7 +38,10 @@ def mortgage_payments(principal, rate, amortization):
         round(rapid_weekly_payment, 2),
     )
 
-# Prompt the user for inputs
+""" 
+Question 2: Prompt the user to enter the principal amount, the quoted interest rate 
+(as a percent, for example, 4.85), and the amortization period in years. 
+"""
 principal = float(input("Enter the principal amount: "))
 rate = float(input("Enter the quoted annual interest rate (in %): "))
 amortization = int(input("Enter the amortization period (in years): "))
@@ -48,6 +49,9 @@ amortization = int(input("Enter the amortization period (in years): "))
 # Calculate payments using the mortgage_payments function
 payments = mortgage_payments(principal, rate, amortization)
 
+"""
+Question 3: Format output (rounded to the nearest penny). 
+"""
 # Display the results
 print(f"\nMonthly Payment: ${payments[0]:,.2f}")
 print(f"Semi-monthly Payment: ${payments[1]:,.2f}")
