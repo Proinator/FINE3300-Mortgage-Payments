@@ -56,7 +56,6 @@ payments = mortgage_payments(principal, rate, amortization)
 Question 3: Format output (rounded to the nearest penny). 
 """
 # Display the results
-print(" ")
 print(f"Monthly Payment: ${payments[0]:,.2f}")
 print(f"Semi-monthly Payment: ${payments[1]:,.2f}")
 print(f"Bi-weekly Payment: ${payments[2]:,.2f}")
